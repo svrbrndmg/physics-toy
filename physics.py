@@ -4,6 +4,11 @@ import math
 run = True
 newgame = True
 pg.init()
+pygame.display.set_caption('physics-toy')
+programIcon = pygame.image.load('icon.png')
+
+pygame.display.set_icon(programIcon)
+
 pg.font.init()
 font = pg.font.SysFont('Calibri', 16)
 info = font.render('Use "x" to launch the cube along the x axis', False, "white")
