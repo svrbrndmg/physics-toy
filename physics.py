@@ -1,5 +1,5 @@
+# if you want to reach out, i'm @svrbrndmg on github and discord, and svrbrndmg [at] proton.me is my email
 import pygame as pg
-import math
 
 run = True
 newgame = True
@@ -8,7 +8,9 @@ pg.font.init()
 font = pg.font.SysFont('Calibri', 16)
 info = font.render('Use "x" to launch the cube along the x axis', False, "white")
 info2 = font.render('and "y" along the y axis.', False, "white")
+info3 = font.render('Made by SvrBrnDmg', False, "white")
 screen = pg.display.set_mode((300, 300))
+pg.display.set_caption("Physics toy")
 
 clock = pg.time.Clock()
 
@@ -48,7 +50,8 @@ while run:
                 if xspeed < 0:
                    xspeed -= 20
             if event.key == pg.K_y and bally >= 275:
-                yspeed -= 20
+                yspeed -= 17.5
+                # might add random here, 15 is too low and 20 is too high
             
     if bally < 280:
        yspeed += gravity
@@ -82,6 +85,7 @@ while run:
     pathlines.append(ballpath)
     screen.blit(info, (0, 0))
     screen.blit(info2, (0, 15))
+    screen.blit(info3, (165, 285))
     xspeedtext = font.render('Horizontal speed: ' + str(round(xspeed, 1)), False, "white")
     yspeedtext = font.render('Vertical speed: ' + str(round(yspeed, 1)), False, "white")
     screen.blit(xspeedtext, (0, 270))
